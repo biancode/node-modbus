@@ -1,0 +1,74 @@
+{
+  "name": "node-modbus",
+  "version": "3.2.6",
+  "description": "Sum of implementations for the Serial/TCP Modbus protocol.",
+  "author": "Klaus Landsdorf <klaus.landsdorf@bianco-royal.de>",
+  "main": "./node-modbus/modbus.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/biancode/node-modbus"
+  },
+  "bugs": {
+    "url": "https://github.com/biancode/node-modbus/issues"
+  },
+  "engines": {
+    "node": ">=4.7.0"
+  },
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "crc": "^3.4.4",
+    "net": "^1.0.2",
+    "serialport": "^4.0.7",
+    "stampit": "^2.1.2",
+    "stampit-event-bus": "^0.1.1",
+    "stampit-log": "^0.3.0",
+    "stampit-state-machine": "^0.2.1"
+  },
+  "devDependencies": {
+    "assert": "^1.4.1",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-config-standard-jsx": "^3.2.0",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-react": "^6.8.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-jsdoc3": "^1.0.1",
+    "gulp-uglify": "^2.0.0",
+    "jsdoc": "^3.4.3",
+    "mocha": "^3.2.0",
+    "sinon": "^1.17.6",
+    "standard": "^8.6.0"
+  },
+  "scripts": {
+    "test": "standard && mocha test/*",
+    "build": "gulp clean && gulp publish",
+    "prepublish": "npm run build"
+  },
+  "license": "MIT",
+  "keywords": [
+    "client",
+    "server",
+    "serial",
+    "port",
+    "modbus",
+    "tcp"
+  ],
+  "readmeFilename": "README.md",
+  "files": [
+    "node-modbus"
+  ],
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  },
+  "standard": {
+    "ignore": [
+      "node_modules/",
+      "examples/",
+      "node-modbus/",
+      "docs"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+node_modules
+*.swp
+node-modbus
+docs/gen
+docs/examples
+docs/icons
+*~
+.DS_Store
+.classpath
+.project
+.settings/
+*.iml
+.idea
+*.lol
+*.aux
+*.log

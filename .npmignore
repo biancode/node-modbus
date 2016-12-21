@@ -1,0 +1,13 @@
+test
+.idea
+node_modules
+extras
+examples
+support
+.git
+.gitignore
+*.iml
+*.conf.js
+src
+.jshintrc
+.jshintignore
