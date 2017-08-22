@@ -181,6 +181,7 @@ module.exports = stampit()
         if (this.inState('closed')) {
           this.emit('error', 'connection closed')
         }
+        defer.reject({err: 'modbus client not in "ready" state'})
       }
     }
 
