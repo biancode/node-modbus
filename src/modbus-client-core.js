@@ -91,7 +91,9 @@ module.exports = stampit()
         clearTimeout(currentRequest.timeout)
       }
       this.log.debug('Cleaning up request fifo.')
-      this.reqFifo = []
+      while (this.reqFifo.length) {
+        this.reqFifo.shift().defer.reject({err: 'Fifo cleanup'})
+      }
     }.bind(this)
 
     let handleErrorPDU = function (pdu) {
@@ -181,6 +183,7 @@ module.exports = stampit()
         if (this.inState('closed')) {
           this.emit('error', 'connection closed')
         }
+        defer.reject({err: 'modbus client not in "ready" state'})
       }
     }
 
