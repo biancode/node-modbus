@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.0.1"></a>
+## [4.0.1](https://github.com/biancode/node-modbus/compare/v4.0.1-beta.0...v4.0.1) (2017-09-26)
+
+
+
 <a name="4.0.1-beta.0"></a>
 ## [4.0.1-beta.0](https://github.com/biancode/node-modbus/compare/v4.0.1-alpha.0...v4.0.1-beta.0) (2017-09-26)
 
