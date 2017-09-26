@@ -1,6 +1,6 @@
 {
   "name": "node-modbus",
-  "version": "4.0.1-alpha.0",
+  "version": "4.0.1-beta.0",
   "description": "Sum of implementations for the Serial/TCP Modbus protocol.",
   "author": "Klaus Landsdorf <klaus.landsdorf@bianco-royal.de>",
   "main": "./node-modbus/modbus.js",
