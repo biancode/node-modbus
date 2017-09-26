@@ -1,5 +1,7 @@
-var ModbusClient = require('../..'),
-  client = ModbusClient('/dev/tty0', 9600)
+'use strict'
+
+var ModbusClient = require('../..')
+var client = ModbusClient('/dev/tty0', 9600)
 
 client.on('connect', function () {
   client.writeMultipleCoils(0, [1, 1, 1]).then(function (resp) {

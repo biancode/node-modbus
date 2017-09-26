@@ -34,10 +34,20 @@ module.exports = stampit()
         this.hostname = '0.0.0.0'
       }
 
+      if (this.netInject) {
+        net = this.netInject
+      }
+
       server = net.createServer()
 
       server.on('connection', function (socket) {
         this.log.debug('new connection', socket.address())
+
+        if (this.whiteListIPs && this.whiteListIPs.indexOf(socket.address()) < 0) {
+          this.log.debug('client connection REJECTED', socket.address())
+          socket.end()
+          return false
+        }
 
         clients.push(socket)
         initiateSocket(socket)

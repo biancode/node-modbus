@@ -1,16 +1,18 @@
-var modbus = require('../..'),
-  client = modbus.client.tcp.complete({
-    'host': process.argv[2],
-    'port': process.argv[3],
-    'autoReconnect': true,
-    'reconnectTimeout': 5000,
-    'logEnabled': true
-  }).connect(),
-  successCount = 0,
-  errorCount = 0,
-  reconnectCount = 0,
-  firstTime = true,
-  intId
+'use strict'
+
+var modbus = require('../..')
+var client = modbus.client.tcp.complete({
+  'host': process.argv[2],
+  'port': process.argv[3],
+  'autoReconnect': true,
+  'reconnectTimeout': 5000,
+  'logEnabled': true
+}).connect()
+var successCount = 0
+var errorCount = 0
+var reconnectCount = 0
+var firstTime = true
+var intId
 
 var start = function () {
   console.log('Starting request...')
@@ -26,6 +28,8 @@ var start = function () {
       start()
     }, 2000)
   }).fail(function (err) {
+    console.error(err)
+
     errorCount += 1
 
     console.log('Success', successCount, 'Errors', errorCount, 'Reconnect', reconnectCount)

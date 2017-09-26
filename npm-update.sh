@@ -2,6 +2,4 @@
 
 npm outdated
 
-ncu -u --upgradeAll
-
 npm install

@@ -1,15 +1,18 @@
-var modbus = require('../..'),
-  client = modbus.client.tcp.complete({
+'use strict'
+
+var modbus = require('../..')
+var client = modbus.client.tcp.complete({
     'host': process.argv[2],
     'port': process.argv[3],
     'autoReconnect': false,
     'logEnabled': true
-  }).connect(),
-  successCount = 0,
-  errorCount = 0,
-  reconnectCount = 0,
-  closedOnPurpose = false,
-  firstTime = true
+}).connect()
+
+var successCount = 0
+var errorCount = 0
+var reconnectCount = 0
+var closedOnPurpose = false
+var firstTime = true
 
 var start = function () {
   console.log('Starting request...')

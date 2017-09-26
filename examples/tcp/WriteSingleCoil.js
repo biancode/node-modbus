@@ -1,5 +1,7 @@
-var modbus = require('../..'),
-  client = modbus.client.tcp.complete({
+'use strict'
+
+var modbus = require('../..')
+var client = modbus.client.tcp.complete({
     'host': process.argv[2],
     'port': process.argv[3],
     'unitId': 1,
@@ -22,3 +24,4 @@ client.on('error', function (err) {
 })
 
 client.connect()
+

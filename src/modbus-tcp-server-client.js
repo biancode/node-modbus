@@ -76,4 +76,3 @@ module.exports = stampit()
 
     init()
   })
-

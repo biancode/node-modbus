@@ -1,5 +1,7 @@
-var stampit = require('stampit'),
-  modbus = require('../..')
+'use strict'
+
+var stampit = require('stampit')
+var modbus = require('../..')
 
 var server = stampit()
     .refs({
@@ -7,8 +9,11 @@ var server = stampit()
       'logLevel': 'debug',
       'port': 8888,
       'responseDelay': 100,
-      'coils': new Buffer(100000),
-      'holding': new Buffer(100000)
+      'coils': new Buffer(20000 * 8),
+      'holding': new Buffer(20000 * 8),
+      'whiteListIPs': [
+        '127.0.0.1'
+      ]
     }).compose(modbus.server.tcp.complete)
     .init(function () {
       var init = function () {
@@ -16,13 +21,6 @@ var server = stampit()
 
         this.on('readCoilsRequest', function (start, quantity) {
           console.log('readCoilsRequest', start, quantity)
-
-/*                var oldValue = this.getCoils().readUInt8(start);
-
-                oldValue = (oldValue + 1) % 255;
-
-                this.getCoils().writeUInt8(oldValue, start);
-*/
         })
 
         this.on('readHoldingRegistersRequest', function (start, quantity) {

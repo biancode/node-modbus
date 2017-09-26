@@ -1,5 +1,7 @@
-var ModbusClient = require('../..'),
-  client = ModbusClient.createSerialClient('/dev/tty0', 9600)
+'use strict'
+
+var ModbusClient = require('../..')
+var client = ModbusClient.createSerialClient('/dev/tty0', 9600)
 
 client.on('connect', function () {
   client.readInputRegister(0, 12).then(function (resp) {
