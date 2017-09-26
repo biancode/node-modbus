@@ -20,6 +20,7 @@ module.exports = stampit()
     let trashRequestId
     let buffer = Buffer.alloc(0)
     let socket
+    let closed = true
 
     let init = function () {
       this.setState('init')
@@ -64,6 +65,7 @@ module.exports = stampit()
     }.bind(this)
 
     let onSocketConnect = function () {
+      closed = false
       this.setState('ready')
       this.emit('connect')
     }.bind(this)
@@ -174,6 +176,11 @@ module.exports = stampit()
     }
 
     this.close = function () {
+      if (closed) {
+        return this
+      }
+
+      closed = true
       closedOnPurpose = true
       this.log.debug('Closing client on purpose.')
       socket.end()
