@@ -72,16 +72,16 @@ const node_modbus = require('node-modbus')
 
 const client = modbus.client.serial.complete({
     'portName': '/dev/ttyS0', /* COM1 */
-    'baudRate': '9600', /* */
-    'dataBits': '8', /* 5, 6, 7 */
-    'stopBits': '1', /* 1.5, 2 */
+    'baudRate': 9600, /* */
+    'dataBits': 8, /* 5, 6, 7 */
+    'stopBits': 1, /* 1.5, 2 */
     'parity': 'none', /* even, odd, mark, space */
     'connectionType': 'RTU', /* RTU or ASCII */
     'connectionDelay': 250, /* 250 msec - sometimes you need more on windows */
     'timeout': 2000, /* 2 sec */
     'autoReconnect': true, /* reconnect on connection is lost */
     'reconnectTimeout': 15000, /* wait 15 sec if auto reconnect fails to often */
-    'logLabel' : 'ModbusClientTCP', /* label to identify in log files */
+    'logLabel' : 'ModbusClientSerial', /* label to identify in log files */
     'logLevel': 'debug', /* for less log use: info, warn or error */
     'logEnabled': true
 })

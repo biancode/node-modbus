@@ -64,8 +64,8 @@ module.exports = stampit()
     }.bind(this)
 
     let onSocketConnect = function () {
-      this.emit('connect')
       this.setState('ready')
+      this.emit('connect')
     }.bind(this)
 
     let onSocketClose = function (hadErrors) {
