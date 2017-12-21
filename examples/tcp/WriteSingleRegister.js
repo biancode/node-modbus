@@ -11,7 +11,7 @@ var client = modbus.client.tcp.complete({
 client.on('connect', function () {
   client.writeSingleRegister(process.argv[4], process.argv[5]).then(function (resp) {
     console.log(resp)
-  }).fail(function (err) {
+  }).catch(function (err) {
     console.log(err)
   }).done(function () {
     client.close()

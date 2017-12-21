@@ -27,7 +27,7 @@ var start = function () {
     setTimeout(function () {
       start()
     }, 2000)
-  }).fail(function (err) {
+  }).catch(function (err) {
     errorCount += 1
 
     console.log('Success', successCount, 'Errors', errorCount, 'Reconnect', reconnectCount)
