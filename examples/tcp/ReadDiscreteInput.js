@@ -12,7 +12,7 @@ var client = modbus.client.tcp.complete({
 client.on('connect', function () {
   client.readDiscreteInputs(0, 12).then(function (resp) {
     console.log(resp)
-  }).fail(function (err) {
+  }).catch(function (err) {
     console.log(err)
   }).done(function () {
     client.close()

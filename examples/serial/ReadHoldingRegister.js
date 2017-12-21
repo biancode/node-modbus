@@ -6,7 +6,7 @@ var client = modbus.client.serial.complete({ 'portName': process.argv[2], 'baudR
 client.on('connect', function () {
   client.readHoldingRegisters(process.argv[4], process.argv[5]).then(function (resp) {
     console.log(resp)
-  }).fail(function (err) {
+  }).catch(function (err) {
     console.log(err)
   }).done(function () {
     client.close()
