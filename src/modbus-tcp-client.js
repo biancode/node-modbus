@@ -54,6 +54,7 @@ module.exports = stampit()
         socket.on('close', onSocketClose)
         socket.on('error', onSocketError)
         socket.on('data', onSocketData)
+        socket.on('timeout', onSocketTimeout)
       }
 
       try {
@@ -90,6 +91,14 @@ module.exports = stampit()
       this.setState('error')
       this.emit('error', err)
     }.bind(this)
+
+    let onSocketTimeout = function (err) {
+      this.logError('Socket Timeout, setting state to error')
+
+      this.setState('error')
+      this.emit('error', 'timeout')
+    }.bind(this)
+
 
     let onSocketData = function (data) {
       this.log.debug('received data')
