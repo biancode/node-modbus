@@ -39,7 +39,7 @@ module.exports = stampit()
       this.on('stateChanged', this.log.debug)
     }.bind(this)
 
-    let connect = function () {
+    let connect = function (callback) {
       this.setState('connect')
 
       if (!socket) {
@@ -59,8 +59,16 @@ module.exports = stampit()
       try {
         socket.connect(this.port, this.host)
         this.log.debug('socket connected')
+        if(typeof callback === 'function')
+        {
+          callback();
+        }
       } catch (err) {
         this.log.error(err + ' on socket connect')
+        if(typeof callback === 'function')
+        {
+          callback(err);
+        }
       }
     }.bind(this)
 
@@ -152,10 +160,10 @@ module.exports = stampit()
       trashRequestId = currentRequestId
     }
 
-    this.connect = function () {
+    this.connect = function (callback) {
       this.setState('connect')
 
-      connect()
+      connect(callback)
 
       return this
     }
@@ -175,8 +183,12 @@ module.exports = stampit()
       return this
     }
 
-    this.close = function () {
+    this.close = function (callback) {
       if (closed) {
+        if(typeof callback === 'function')
+        {
+          callback();
+        }
         return this
       }
 
@@ -184,6 +196,10 @@ module.exports = stampit()
       closedOnPurpose = true
       this.log.debug('Closing client on purpose.')
       socket.end()
+      if(typeof callback === 'function')
+      {
+        callback();
+      }
       return this
     }
 
