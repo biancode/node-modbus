@@ -65,6 +65,8 @@
   ],
   "readmeFilename": "README.md",
   "files": [
+    "docs",
+    "examples",
     "node-modbus"
   ],
   "directories": {
