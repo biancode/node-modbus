@@ -19,13 +19,13 @@ module.exports = stampit()
       this.log.debug('request: ' + JSON.stringify(request))
 
       if (pdu.length < 5) {
-        request.defer.reject()
+        request.defer.reject(new Error('PDU length less than five'))
         return
       }
 
       let fc = pdu.readUInt8(0)
       if (fc !== 16) {
-        request.defer.reject()
+        request.defer.reject(new Error('FC ' + fc + ' is not valid - FC16 is expected'))
         return
       }
 

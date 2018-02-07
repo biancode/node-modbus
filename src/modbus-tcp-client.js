@@ -60,15 +60,13 @@ module.exports = stampit()
       try {
         socket.connect(this.port, this.host)
         this.log.debug('socket connected')
-        if(typeof callback === 'function')
-        {
-          callback();
+        if (typeof callback === 'function') {
+          callback()
         }
       } catch (err) {
         this.log.error(err + ' on socket connect')
-        if(typeof callback === 'function')
-        {
-          callback(err);
+        if (typeof callback === 'function') {
+          callback(err)
         }
       }
     }.bind(this)
@@ -193,9 +191,8 @@ module.exports = stampit()
 
     this.close = function (callback) {
       if (closed) {
-        if(typeof callback === 'function')
-        {
-          callback();
+        if (typeof callback === 'function') {
+          callback()
         }
         return this
       }
@@ -204,9 +201,8 @@ module.exports = stampit()
       closedOnPurpose = true
       this.log.debug('Closing client on purpose.')
       socket.end()
-      if(typeof callback === 'function')
-      {
-        callback();
+      if (typeof callback === 'function') {
+        callback()
       }
       return this
     }

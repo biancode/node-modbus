@@ -22,9 +22,14 @@
 
 'use strict'
 
-let gulp = require('gulp')
-let clean = require('gulp-clean')
-let jsdoc = require('gulp-jsdoc3')
+const gulp = require('gulp')
+const jsdoc = require('gulp-jsdoc3')
+const clean = require('gulp-clean')
+const uglify = require('gulp-uglify')
+const babel = require('gulp-babel')
+const sourcemaps = require('gulp-sourcemaps')
+const pump = require('pump')
+const replace = require('gulp-replace')
 
 gulp.task('default', function () {
   // place code for your default task here
@@ -35,7 +40,7 @@ gulp.task('build', ['nodejs'])
 gulp.task('publish', ['build', 'icons', 'vendor', 'docs'])
 
 gulp.task('clean', function () {
-  return gulp.src('node-modbus')
+  return gulp.src(['node-modbus', 'docs/gen', 'maps', 'code'])
     .pipe(clean({force: true}))
 })
 
@@ -60,7 +65,21 @@ gulp.task('vendor', function () {
   return gulp.src('src/public/**/*').pipe(gulp.dest('node-modbus/public'))
 })
 
-gulp.task('nodejs', function () {
-  return gulp.src('src/**/*.js')
-    .pipe(gulp.dest('node-modbus'))
+gulp.task('nodejs', function (cb) {
+  let anchor = '// SOURCE-MAP-REQUIRED'
+
+  pump([gulp.src('src/**/*.js')
+      .pipe(sourcemaps.init({loadMaps: true}))
+      .pipe(replace(anchor, 'require(\'source-map-support\').install()'))
+      .pipe(babel({presets: ['es2015']}))
+      .pipe(uglify())
+      .pipe(sourcemaps.write('maps')), gulp.dest('node-modbus')],
+    cb
+  )
+})
+
+gulp.task('code', function () {
+  gulp.src('src/**/*.js')
+    .pipe(babel({presets: ['es2015']}))
+    .pipe(gulp.dest('code'))
 })

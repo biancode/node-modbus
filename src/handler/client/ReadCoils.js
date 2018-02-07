@@ -19,7 +19,7 @@ module.exports = Stampit()
       this.log.debug(' request: ' + JSON.stringify(request))
 
       if (pdu.length < 2) {
-        request.defer.reject()
+        request.defer.reject(new Error('PDU length less than two'))
         return
       }
 
@@ -34,7 +34,7 @@ module.exports = Stampit()
       }
 
       if (fc !== 1) {
-        request.defer.reject()
+        request.defer.reject(new Error('FC ' + fc + ' is not valid - FC1 is expected'))
         return
       }
 
