@@ -18,7 +18,7 @@
     "bluebird": "^3.4.6",
     "crc": "^3.4.4",
     "net": "^1.0.2",
-    "serialport": "^6.1.0",
+    "serialport": "^6.0.4",
     "stampit": "^2.1.2",
     "stampit-event-bus": "^0.1.1",
     "stampit-log": "^0.3.0",
