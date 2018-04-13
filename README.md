@@ -70,7 +70,7 @@ TBD
 ```js
 const node_modbus = require('node-modbus')
 
-const client = modbus.client.serial.complete({
+const client = node_modbus.client.serial.complete({
     'portName': '/dev/ttyS0', /* COM1 */
     'baudRate': 9600, /* */
     'dataBits': 8, /* 5, 6, 7 */
