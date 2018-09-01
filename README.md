@@ -1,14 +1,11 @@
 [![NPM version](https://badge.fury.io/js/node-modbus.png)](http://badge.fury.io/js/node-modbus)
 [![Build Status](https://travis-ci.org/biancode/node-modbus.svg?branch=master)](https://travis-ci.org/biancode/node-modbus)
-[![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 [![NPM download](https://img.shields.io/npm/dm/node-modbus.svg)](http://www.npm-stats.com/~packages/node-modbus)
-
-[![nodemodbus64](images/modbus-icon64.png)](https://www.npmjs.com/package/node-red-contrib-modbus)
 
 node-modbus
 ===========
 
-NODE-MODBUS is a simple Modbus TCP/Serial Client/Server API.
+## Is not maintained anymore. This package was a mix of all existing Modbus package sometime before. Now we have a great state of very good Modbus packages like [modbus-serial][4] (works for TCP and Serial) and [jsmodbus][3] (root of that package). Feel free to contact me to get this package on NPM to provide your package under the name node-modbus!
 
 # Install
 
@@ -104,3 +101,5 @@ Based on [jsmodbus][1]
 
 [1]:https://github.com/Cloud-Automation/node-modbus
 [2]:https://github.com/visionmedia/mocha
+[3]:https://www.npmjs.com/package/jsmodbus
+[4]:https://www.npmjs.com/package/modbus-serial
