@@ -5,7 +5,7 @@
 node-modbus
 ===========
 
-## Is not maintained anymore. This package was a mix of all existing Modbus package sometime before. Now we have a great state of very good Modbus packages like [modbus-serial][4] (works for TCP and Serial) and [jsmodbus][3] (root of that package). Feel free to contact me to get this package on NPM to provide your package under the name node-modbus!
+## Is not maintained anymore. This package was a mix of all existing Node.js Modbus packages sometime before. Now we have a great state of very good Modbus packages like [modbus-serial][4] (works for TCP and Serial) and [jsmodbus][3] (root of that package). Feel free to contact me to get this package on NPM to provide your package under the name node-modbus!
 
 # Install
 
